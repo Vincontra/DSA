@@ -23,29 +23,56 @@ public class ThreeActivities{
 
     // ---------- Solve ----------
     static void solve() {
-        int n=fr.nextInt();
-        int arr[]=new int[n];
-        int brr[]=new int[n];
-        int crr[]=new int[n];
-        for (int i=0;i<n;i++){
-            arr[i]= fr.nextInt();
+//        int n=fr.nextInt();
+//        ArrayList<Pair>arr = new ArrayList<>();
+//        ArrayList<Pair>brr = new ArrayList<>();
+//        ArrayList<Pair>crr = new ArrayList<>();
+//
+//        for (int i=0;i<n;i++){
+//            int val= fr.nextInt();
+//            arr.add(new Pair(val,i));
+//        }
+//        arr.sort((a, b) -> b.val - a.val);
+//
+//        for (int i=0;i<n;i++){
+//            int val= fr.nextInt();
+//            brr.add(new Pair(val,i));
+//        }
+//        brr.sort((a, b) -> b.val - a.val);
+//
+//        for (int i=0;i<n;i++){
+//            int val= fr.nextInt();
+//            crr.add(new Pair(val,i));
+//        }
+//        crr.sort((a, b) -> b.val - a.val);
+//
+//        long ans=0;
+//
+//        for (int i=0;i<3;i++){
+//            for (int j=0;j<3;j++){
+//                for (int k=0;k<3;k++){
+//                    Pair a=arr.get(i);
+//                    Pair b=brr.get(j);
+//                    Pair c=crr.get(k);
+//                    if (a.idx!=b.idx&&b.idx!=c.idx&&a.idx!=c.idx){
+//                        ans=Math.max(ans,a.val+b.val+c.val);
+//                    }
+//                }
+//            }
+//        }
+//        System.out.println(ans);
+
+        System.out.println(modPow(10000,10000,LMOD));
+
+    }
+
+    static class Pair{
+        int val;
+        int idx;
+        public Pair(int val,int idx){
+            this.val=val;
+            this.idx=idx;
         }
-        for (int i=0;i<n;i++){
-            brr[i]= fr.nextInt();
-        }
-        for (int i=0;i<n;i++){
-            crr[i]= fr.nextInt();
-        }
-
-
-
-
-
-
-
-
-
-
     }
 
     // ---------- Math Helpers ----------
@@ -62,12 +89,14 @@ public class ThreeActivities{
     }
 
     static long modPow(long a, long b, long mod) {
-        long res = 1;
-        a %= mod;
-        while (b > 0) {
-            if ((b & 1) == 1) res = (res * a) % mod;
-            a = (a * a) % mod;
-            b >>= 1;
+        long res=1;
+        a%=mod;
+        while (b>0){
+            if ((b&1)==1){
+                res=(res*a)%mod;
+            }
+            a=(a*a)%mod;
+            b>>=1;
         }
         return res;
     }
@@ -260,23 +289,7 @@ public class ThreeActivities{
     }
 
     // ---------- Pair / Triple ----------
-    static class Pair implements Comparable<Pair> {
-        int x, y;
 
-        Pair(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        public int compareTo(Pair o) {
-            if (this.x != o.x) return this.x - o.x;
-            return this.y - o.y;
-        }
-
-        public String toString() {
-            return "(" + x + "," + y + ")";
-        }
-    }
 
     static class Triple implements Comparable<Triple> {
         int x, y, z;

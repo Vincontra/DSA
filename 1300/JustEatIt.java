@@ -44,6 +44,7 @@ public class JustEatIt {
                 curr=0;
             }
         }
+
         curr=0;
         for (int i=1;i<n;i++){
             curr+=arr[i];
@@ -61,6 +62,7 @@ public class JustEatIt {
         else{
             System.out.println("No");
         }
+
     }
 
     // ---------- Math Helpers ----------

@@ -26,9 +26,40 @@ public class DolceVita{
         int n=fr.nextInt();
         long x=fr.nextLong();
         long arr[]=new long[n];
-        for (int i=0;i<n;i++)arr[i]=fr.nextLong();
-        
 
+        for (int i=0;i<n;i++){
+            arr[i]=fr.nextLong();
+        }
+        Arrays.sort(arr);
+        long pfx[]=new long[n];
+        pfx[0]=arr[0];
+        for (int i=1;i<n;i++){
+            pfx[i]=pfx[i-1]+arr[i];
+        }
+
+        long ans=0;
+        for (int i=0;i<n;i++){
+            ans+=bs(i,pfx[i],x);
+        }
+        System.out.println(ans);
+    }
+    public static long bs(int idx,long val,long x){
+        long lo=1;
+        long hi=(int)1e9+5;
+        long ans=0;
+        while (lo<=hi){
+            long mid=(hi-lo)/2+lo;
+            if (check(idx,val,mid,x)){
+                ans=mid;
+                lo=mid+1;
+            }else{
+                hi=mid-1;
+            }
+        }
+        return ans;
+    }
+    public static boolean check(int idx,long val,long mid,long x){
+        return val+(idx+1)*(mid-1)<=x;
     }
 
     // ---------- Math Helpers ----------
@@ -54,7 +85,6 @@ public class DolceVita{
         }
         return res;
     }
-
     static long modInverse(long a, long mod) {
         return modPow(a, mod - 2, mod);
     }
@@ -106,7 +136,6 @@ public class DolceVita{
         }
         return prime;
     }
-
     static long totient(long n) {
         long res = n;
         for (long p = 2; p * p <= n; p++) {
@@ -338,3 +367,5 @@ public class DolceVita{
     }
 
 }
+
+

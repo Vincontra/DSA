@@ -92,7 +92,7 @@ class Codechefs
 //
 // Hence, for a complete reduction to be possible:
 //
-// Total Sum = Total OR
+// Total Sum = Total Or
 
 
 

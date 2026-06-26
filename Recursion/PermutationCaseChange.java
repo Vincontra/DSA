@@ -5,7 +5,6 @@ public class PermutationCaseChange {
         String ip="a1b2";
         String op="";
         print(ip,op);
-
     }
     public static void print(String ip,String op){
         if (ip.length()==0){

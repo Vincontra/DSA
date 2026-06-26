@@ -18,7 +18,7 @@ public class DeleteMiddleOfStack {
         System.out.println("==========================");
         int size=s1.size();
         delete(s1,size);
-        while (!s1.isEmpty()){
+        while (!s1.isEmpty()) {
             System.out.println(s1.pop());
         }
     }

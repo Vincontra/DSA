@@ -37,15 +37,13 @@
 
 
 public class KthSymInGrammer {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         System.out.println(func(2,2));
-
     }
     public static int func(int n,int k){
         if (n==1&&k==1){
             return 0;
         }
-
         int mid=(1<<(n-1))/2;
         if (k<=mid){
             return func(n-1,k);

@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 import java.math.*;
 
-public class GamesontheTrain{
+public class DivideandConquer{
     // ---------- Constants ----------
     static final int MOD = (int) 1e9 + 7;
     static final long LMOD = 1000000007L;
@@ -23,17 +23,13 @@ public class GamesontheTrain{
 
     // ---------- Solve ----------
     static void solve() {
-        int n=fr.nextInt();
-        int arr[]=new int[n];
-        int max=Integer.MIN_VALUE;
-        int min=Integer.MAX_VALUE;
-        for (int i=0;i<n;i++){
-            arr[i]=fr.nextInt();
-            max=Math.max(max,arr[i]);
-            min=Math.min(min,arr[i]);
-        }
-        System.out.println(max-min+1);
+        int x=fr.nextInt();
+        int y=fr.nextInt();
 
+        // ultimate x==y
+        // so
+        if (x%y==0) System.out.println("YES");
+        else System.out.println("No");
 
     }
 

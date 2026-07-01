@@ -45,8 +45,6 @@ public class MarisaStealReimuTakeout{
         int cntOnlyBy1=cnt1/3;
         int cntOnlyBy2=(cnt2*2)/6;
         System.out.println(cnt0+min+cntOnlyBy1+cntOnlyBy2);
-
-
     }
 
     // ---------- Math Helpers ----------

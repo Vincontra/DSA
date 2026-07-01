@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 import java.math.*;
 
-public class GamesontheTrain{
+public class GoodtimesGoodtimes{
     // ---------- Constants ----------
     static final int MOD = (int) 1e9 + 7;
     static final long LMOD = 1000000007L;
@@ -23,18 +23,23 @@ public class GamesontheTrain{
 
     // ---------- Solve ----------
     static void solve() {
-        int n=fr.nextInt();
-        int arr[]=new int[n];
-        int max=Integer.MIN_VALUE;
-        int min=Integer.MAX_VALUE;
-        for (int i=0;i<n;i++){
-            arr[i]=fr.nextInt();
-            max=Math.max(max,arr[i]);
-            min=Math.min(min,arr[i]);
+        long x=fr.nextLong();
+        int cnt=0;
+        while (x>0){
+            cnt++;
+            x/=10;
         }
-        System.out.println(max-min+1);
+        System.out.print(1);
+        for (int i=0;i<cnt-1;i++) System.out.print(0);
+        System.out.println(1);
 
-
+    }
+    static boolean check(String c){
+        HashSet<Character>hashSet = new HashSet<>();
+        for (int i=0;i<c.length();i++){
+            hashSet.add(c.charAt(i));
+        }
+        return (hashSet.size()<=2);
     }
 
     // ---------- Math Helpers ----------

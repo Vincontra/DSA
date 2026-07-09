@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 import java.math.*;
 
-public class SuperultraFavoritePermutation{
+public class Seats{
     // ---------- Constants ----------
     static final int MOD = (int) 1e9 + 7;
     static final long LMOD = 1000000007L;
@@ -24,23 +24,38 @@ public class SuperultraFavoritePermutation{
     // ---------- Solve ----------
     static void solve() {
         int n=fr.nextInt();
-        if (n<5){
-            System.out.println(-1);
-            return;
-        }
-        for (int i=2;i<=n;i+=2){
-            if (i!=4){
-                System.out.print(i + " ");
+        String s=fr.next();
+        int ans=0;
+        for (int i=0;i<n;i++){
+            if(s.charAt(i)=='1'){
+                ans++;
             }
         }
-        System.out.print("4 5 ");
-        for (int i=1;i<=n;i+=2){
-            if (i!=5){
-                System.out.print(i + " ");
+        int i=0;
+        while(i<n){
+            if (s.charAt(i)=='1'){
+                i++;
+                continue;
             }
+            int j=i;
+            while(j<n&&s.charAt(j)=='0'){
+                j++;
+            }
+            int cnt=j-i;
+            if (i==0&&j==n){  // sabke sab 0
+                ans+=(cnt+2)/3;
+            }
+            else if(i==0||j==n){ // kisi ek side pr 1
+                ans+=(cnt+1)/3;
+            }
+            else{ // dono side pr 1
+                ans+=cnt/3;
+            }
+            i=j;
         }
-        System.out.println();
+        System.out.println(ans);
     }
+
     // ---------- Math Helpers ----------
     static int gcd(int a, int b) {
         return b == 0 ? a : gcd(b, a % b);
@@ -100,9 +115,7 @@ public class SuperultraFavoritePermutation{
         if (n < 2) return false;
         if (n % 2 == 0) return n == 2;
         for (long i = 3; i * i <= n; i += 2)
-            if (n % i == 0){
-                return false;
-            }
+            if (n % i == 0) return false;
         return true;
     }
 

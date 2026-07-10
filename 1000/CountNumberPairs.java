@@ -30,7 +30,7 @@ public class CountNumberPairs{
         int[] big=new int[26];
         for (int i=0;i<s.length();i++){
             char curr=s.charAt(i);
-            if (curr>='a'&&curr<='z'){
+            if (curr>='a'&& curr<='z'){
                 sm[curr-'a']++;
             }
             else{
@@ -44,7 +44,7 @@ public class CountNumberPairs{
             sm[i]-=cnt;
             big[i]-=cnt;
         }
-        for (int i=0;i<26;i++){
+        for (int i=0;i<26&&k>0;i++){
             int cnt=Math.max(sm[i],big[i]);
             int use=Math.min(k,cnt/2);
             ans+=use;

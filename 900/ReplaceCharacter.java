@@ -32,18 +32,24 @@ public class ReplaceCharacter{
             frq[aa.charAt(i)-'a']++;
         }
         int max=Integer.MIN_VALUE;
-        char curr='a';
+        int min=Integer.MAX_VALUE;
+        char currmax='a';
+        char currmin='a';
         for (int i=0;i<26;i++){
-            if (max<frq[i]){
+            if (max<=frq[i]){
                 max=frq[i];
-                curr=(char)(i+'a');
+                currmax=(char)(i+'a');
+            }
+            if (frq[i]>0&&frq[i]<min){
+                min=frq[i];
+                currmin=(char)(i+'a');
             }
         }
         boolean once=true;
         StringBuilder sb=new StringBuilder();
         for (int i=0;i<aa.length();i++){
-            if (once&&aa.charAt(i)!=curr){
-                sb.append(curr);
+            if (once&&aa.charAt(i)==currmin){
+                sb.append(currmax);
                 once=false;
             }else{
                 sb.append(aa.charAt(i));

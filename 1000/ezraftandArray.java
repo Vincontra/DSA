@@ -26,7 +26,7 @@ public class ezraftandArray{
             System.out.println(1);
         }
         else if (n==2){
-            System.out.println(-1);
+            System.out.println(-1); ////
         }
         else if (n==3){
             System.out.println(1+" "+2+" "+3);
